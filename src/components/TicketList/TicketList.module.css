@@ -1,0 +1,11 @@
+.container {
+  margin-top: clamp(0.75rem, 0.443rem + 1.14vw, 1.813rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.188rem, 1.971rem + 0.81vw, 2.938rem);
+  height: clamp(23.188rem, 31.871rem + 22.9vw, 39.75rem);
+  overflow-y: scroll;
+}
+.empty {
+  height: clamp(39.188rem, 37.871rem + 4.9vw, 43.75rem);
+}

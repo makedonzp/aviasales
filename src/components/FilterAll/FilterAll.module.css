@@ -1,0 +1,117 @@
+.filterAll {
+  display: none; /* По умолчанию скрыт */
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 16px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.headerText {
+  font-size: 16px;
+}
+
+.headerAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-wrap: nowrap;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+  transition: transform 0.2s ease;
+}
+
+.arrowUp {
+  transform: rotate(180deg);
+}
+
+.arrowDown {
+  transform: rotate(0deg);
+}
+
+.content {
+  background-color: var(--primary-color);
+  padding: 16px;
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  gap: clamp(1.5rem, 1.031rem + 1.74vw, 3.125rem);
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.title {
+  color: var(--secondary-color);
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxInput {
+  display: none; /* Скрываем стандартный чекбокс */
+}
+
+.checkboxCustom {
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkboxCustom::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checkboxInput:checked + .checkboxCustom::before {
+  opacity: 1;
+}
+
+.text {
+  color: var(--secondary-color);
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .filterAll {
+    display: block; /* Показываем на экранах меньше 768px */
+  }
+}

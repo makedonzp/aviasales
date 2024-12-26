@@ -1,0 +1,57 @@
+.container {
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  padding-top: 38px;
+  padding-right: clamp(1.75rem, 1.479rem + 1.01vw, 2.688rem);
+  padding-bottom: 25px;
+  padding-left: clamp(1.438rem, 1.149rem + 1.07vw, 2.438rem);
+  min-height: 174px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.logo {
+  width: 180px;
+  height: 51px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.details {
+  display: flex;
+  gap: clamp(1rem, 0.773rem + 0.56vw, 2.25rem);
+  justify-content: space-between;
+}
+
+.route,
+.duration,
+.stops {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  text-align: left;
+}
+
+.label {
+  font-size: 14px;
+  color: #666;
+  width: 100%;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: bold;
+}

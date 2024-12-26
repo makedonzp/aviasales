@@ -1,0 +1,58 @@
+.filter-container {
+  background-color: #e8ebf2;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.filter-title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filter-checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.filter-checkbox-input {
+  display: none; /* Скрываем стандартный чекбокс */
+}
+
+.filter-checkbox-input + span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--primary-color); /* Обводка цветом --primary-color */
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.filter-checkbox-input:checked + span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary-color); /* Цвет галочки */
+  transform: translate(-50%, -50%) rotate(45deg);
+  clip-path: polygon(
+    14% 44%,
+    0 65%,
+    50% 100%,
+    100% 16%,
+    80% 0%,
+    43% 62%
+  ); /* Форма галочки */
+}

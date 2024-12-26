@@ -1,0 +1,32 @@
+@import url("./variables//variables.css");
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("./fonts/static/Inter_18pt-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Inter-Bold";
+  src: url("./fonts/static/Inter_18pt-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Inter-Light";
+  src: url("./fonts/static/Inter_18pt-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Inter-SemiBold";
+  src: url("./fonts/static/Inter_18pt-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+body {
+  font-family: "Inter-Regular", serif;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0;
+  padding: 0;
+}

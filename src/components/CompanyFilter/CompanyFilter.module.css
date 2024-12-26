@@ -1,0 +1,65 @@
+.container {
+  background-color: #e8ebf2;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px; /* Отступ от предыдущего фильтра */
+}
+
+.title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkboxInput {
+  display: none; /* Скрываем стандартный чекбокс */
+}
+
+.checkboxCustom {
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--primary-color); /* Обводка цветом --primary-color */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkboxCustom::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: var(
+    --primary-color
+  ); /* Внутренний круг цветом --primary-color */
+  border-radius: 50%;
+  opacity: 0; /* По умолчанию скрыт */
+  transition: opacity 0.2s ease;
+}
+
+.checkboxInput:checked + .checkboxCustom::before {
+  opacity: 1; /* Показываем внутренний круг при выборе */
+}
+
+.checkboxInput:checked + .checkboxCustom {
+  border: 1px solid var(--primary-color); /* Обводка цветом --primary-color */
+}
+
+.text {
+  color: #858ae3;
+  font-size: 16px;
+}

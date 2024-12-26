@@ -1,0 +1,15 @@
+.container_fluid {
+  display: flex;
+}
+.filterContainer {
+  max-width: 1049px !important;
+  padding-top: 24px;
+}
+.filterRow {
+  gap: 24px;
+}
+@media screen and (max-width: 768px) {
+  .filterCol {
+    display: none;
+  }
+}

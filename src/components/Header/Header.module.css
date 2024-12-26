@@ -1,0 +1,21 @@
+.header {
+  padding: 0 !important;
+  padding-top: clamp(1.938rem, 0.982rem + 3.56vw, 5.25rem) !important;
+}
+.headerContainer {
+  max-width: 1049px !important;
+}
+.headerTitle {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 24px;
+  line-height: 29.05px;
+}
+.headerCol {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.headerLogo {
+  width: clamp(4.25rem, 3.673rem + 2.15vw, 6.25rem);
+}
