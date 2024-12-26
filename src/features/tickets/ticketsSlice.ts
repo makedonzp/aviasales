@@ -1,8 +1,7 @@
-import { createSlice, createAsyncThunk, createEntityAdapter, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { fetchTickets } from './ticketsAPI';
 import { RootState } from '../../app/store';
 
-// Определение интерфейса для билета
 export interface Ticket {
   id: number;
   from: string;
@@ -15,21 +14,22 @@ export interface Ticket {
   companyImg: string;
 }
 
-// Создание адаптера для управления сущностями
-const ticketsAdapter = createEntityAdapter<Ticket>({
-  selectId: (ticket: Ticket) => ticket.id, // Явно указываем тип
-  sortComparer: (a, b) => a.price - b.price,
-});
+interface TicketsState {
+  tickets: Ticket[];
+  selectedStops: number[];
+  selectedCompanies: string[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
+}
 
-// Определение начального состояния с использованием адаптера
-const initialState = ticketsAdapter.getInitialState({
-  selectedStops: [] as number[],
-  selectedCompanies: [] as string[],
-  status: 'idle' as 'idle' | 'loading' | 'succeeded' | 'failed',
-  error: null as string | null,
-});
+const initialState: TicketsState = {
+  tickets: [],
+  selectedStops: [],
+  selectedCompanies: [],
+  status: 'idle',
+  error: null,
+};
 
-// Асинхронный Thunk для загрузки билетов
 export const fetchTicketsAsync = createAsyncThunk(
   'tickets/fetchTickets',
   async () => {
@@ -38,7 +38,6 @@ export const fetchTicketsAsync = createAsyncThunk(
   }
 );
 
-// Создание слайса
 const ticketsSlice = createSlice({
   name: 'tickets',
   initialState,
@@ -57,7 +56,7 @@ const ticketsSlice = createSlice({
       })
       .addCase(fetchTicketsAsync.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        ticketsAdapter.addMany(state, action.payload);
+        state.tickets = [...state.tickets, ...action.payload];
       })
       .addCase(fetchTicketsAsync.rejected, (state, action) => {
         state.status = 'failed';
@@ -66,13 +65,10 @@ const ticketsSlice = createSlice({
   },
 });
 
-// Экспорт действий и редьюсера
 export const { setSelectedStops, setSelectedCompanies } = ticketsSlice.actions;
 
-// Экспорт селекторов адаптера
-export const {
-  selectAll: selectAllTickets,
-  selectById: selectTicketById,
-} = ticketsAdapter.getSelectors((state: RootState) => state.tickets);
+export const selectAllTickets = (state: RootState) => state.tickets.tickets;
+export const selectSelectedStops = (state: RootState) => state.tickets.selectedStops;
+export const selectSelectedCompanies = (state: RootState) => state.tickets.selectedCompanies;
 
 export default ticketsSlice.reducer;
